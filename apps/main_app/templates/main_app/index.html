@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'main_app/css/style.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-inline" action="/process" method="post">
+        {% csrf_token %}
+        <label for="name">Your Name: </label>
+        <input class='form-control mr-sm-2' type="text" name="name">
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Dojo Location</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name='location'>
+            <option selected>Choose...</option>
+            <option value="seattle">Seattle</option>
+            <option value="korea">Korea</option>
+            <option value="china">China</option>
+            <option value="japan">Japan</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Favorite Language</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name='language'>
+            <option selected>Choose...</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="c++">C++</option>
+            <option value="java">Java</option>
+          </select>
+        </div>
+
+        <label for="name">Comment (optional): </label>
+        <textarea name="comment" rows="8" cols="60"></textarea>
+        <input class="form-control mr-sm-2" type="submit" name="submit" value="Submit">
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
